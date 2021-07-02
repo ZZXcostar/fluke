@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>测试</title>
+    <!-- <link rel="stylesheet" href="./static/css/reset.css" />
+    <link rel="stylesheet" href="./static/css/nativeShare.css" />
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_815382_fmahlqr0dv.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.5.1"> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script> -->
+
+</head>
+
+<body>
+  <div class="content">
+    <image src="https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/band-international-kf-nations-202106?wid=970&hei=592&fmt=jpeg&qlt=80&.v=1623433807000" alt="图片资源获取失败"></image>
+  </div>
+  <div class="tip">
+    <p>请将手机旋转至横屏观看效果更佳</p>
+  </div>
+    <!-- built files will be auto injected -->
+</body>
+
+</html>
+<!-- <script src='http://res.wx.qq.com/open/js/jweixin-1.2.0.js'></script>
+<script src='./static/js/nativeShare.js'></script> -->
+<script>
+    // let vm=new Vue({
+    //     data:{},
+    //     created(){
+    //         alert(111);
+    //     }
+    // });
+    // document.querySelector('body').addEventListener('touchstart', function (ev) {
+    //     event.preventDefault();
+    // });
+    // window.onbeforeunload = function () {
+    //     return "退出?";
+    // };
+    // window.onload = function () {
+        
+    // }
+    
+    (function(doc, win) {
+        var docEl = doc.documentElement,
+            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+            recalc = function() {
+                var clientWidth = docEl.clientWidth;
+                if (!clientWidth) return;
+                if (clientWidth >= 750) {
+                    docEl.style.fontSize = '100px';
+                } else {
+                    docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+                }
+            };
+        if (!doc.addEventListener) return;
+        win.addEventListener(resizeEvt, recalc, false);
+        doc.addEventListener('DOMContentLoaded', recalc, false);
+        
+    })(document, window);
+     //jsonp 
+     // 得到信息结果后的回调函数
+    // var openidCB = function(data){
+    //     alert(data);
+    // };
+
+    var timerId = null
+    // 取消定时器的执行
+    clearTimeout(timerId);
+    timerId = setTimeout(function () {
+      var box1 = document.getElementsByClassName("tip")[0];
+      box1.style.display = 'none';
+      var box2 = document.getElementsByClassName("content")[0];
+      box2.style.display = 'block';
+    }, 3000);
+</script>
+<style>
+   img{
+     width: 100%;
+     height: 100%;
+   }
+    body {
+    position: fixed;
+
+    width: 100%;
+
+    height: 100%;
+
+    padding: 0;
+
+    margin: 0;
+
+    overflow: hidden;
+
+    }
+   p{
+    font-size: 24px;
+    height: 84vh;
+    /* line-height: 68px; */
+    padding: 0 30px;
+    margin-top: 77%;
+   }
+   
+   .tip{
+      display: block;
+      width: 100vw;
+
+      height: 100vh;
+    }
+@media screen and (orientation: portrait) {
+    .content {
+      display: none;
+      position: absolute;
+
+      width: 100vh;
+
+      height: 100vw;
+
+      top: 0;
+
+      left: 100vw;
+
+      -webkit-transform: rotate(90deg);
+
+      -moz-transform: rotate(90deg);
+
+      -ms-transform: rotate(90deg);
+
+      transform: rotate(90deg);
+
+      transform-origin: 0% 0%;
+
+    }
+
+}
+
+@media screen and (orientation: landscape) {
+    .content {
+      display: none;
+      position: absolute;
+
+      top: 0;
+
+      left: 0;
+
+      width: 100vw;
+
+      height: 100vh;
+
+    }
+
+}
+</style>
