@@ -10,12 +10,35 @@
     <link rel="stylesheet" href="http://at.alicdn.com/t/font_815382_fmahlqr0dv.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.5.1"> -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script> -->
+    <link rel="stylesheet" type="text/css" href="./style.css">
+    <script src="./jq.min.js"></script>
 
 </head>
 
 <body>
   <div class="content">
-    <image src="https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/band-international-kf-nations-202106?wid=970&hei=592&fmt=jpeg&qlt=80&.v=1623433807000" alt="图片资源获取失败"></image>
+    <header class="flexBox">
+      <div class="flexLeft">
+        <img src="./img/logo.png" />
+      </div>
+      <div class="flexRight">
+        <span class="headerText">全国热线: 400-800-3435</span>
+        <a class="headerHerf">下载详细参数</a>
+      </div>
+    </header>
+    <div class="warp">
+      <div class="anm1">
+        <div class="bg1"><img src="./img/1-0.9998.png" class="img1" />
+          <img class="img2" src="./img/1-0.9999.png" /><img class="img3" src="./img/1-mΩ.png"></div>
+        <div class="an1Title">
+          <div>ocv</div>
+          <div class="cn">开路电压</div>
+        </div>
+      </div>
+      <div class="anm2"></div>
+      <div class="anm2"></div>
+    </div>
+    <!-- <image src="https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/band-international-kf-nations-202106?wid=970&hei=592&fmt=jpeg&qlt=80&.v=1623433807000" alt="图片资源获取失败"></image> -->
   </div>
   <div class="tip">
     <p>请将手机旋转至横屏观看效果更佳</p>
@@ -50,9 +73,9 @@
                 var clientWidth = docEl.clientWidth;
                 if (!clientWidth) return;
                 if (clientWidth >= 750) {
-                    docEl.style.fontSize = '100px';
+                    // docEl.style.fontSize = '100px';
                 } else {
-                    docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+                    // docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
                 }
             };
         if (!doc.addEventListener) return;
@@ -78,8 +101,8 @@
 </script>
 <style>
    img{
-     width: 100%;
-     height: 100%;
+     /* width: 100%;
+     height: 100%; */
    }
     body {
     position: fixed;
@@ -93,6 +116,7 @@
     margin: 0;
 
     overflow: hidden;
+    background: rgb(5, 4, 4)
 
     }
    p{
