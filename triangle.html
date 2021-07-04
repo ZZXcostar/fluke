@@ -18,14 +18,14 @@
     <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script> -->
     <link rel="stylesheet" type="text/css" href="./css/common.css" />
     <link rel="stylesheet" type="text/css" href="./style.css">
-    <link rel="stylesheet" type="text/css" href="./triangle.css">
+    <link rel="stylesheet" type="text/css" href="./css/triangle.css">
     <script src="./jq.min.js"></script>
-
+    <script src="./js/rem.js"></script>
 </head>
 
 <body>
   <div class="content">
-    <header class="flexBox">
+    <header class="flexBox d-flex justify-between">
       <div class="flexLeft">
         <img src="./img/logo.png" />
       </div>
@@ -34,22 +34,17 @@
         <a class="headerHerf">下载详细参数</a>
       </div>
     </header>
-    <div class="warp">
-      <div class="anm1">
-        <div class="bg1"><img src="./img/1-0.9998.png" class="img1" />
-          <img class="img2" src="./img/1-0.9999.png" /><img class="img3" src="./img/1-mΩ.png"></div>
-        <div class="an1Title">
-          <div>ocv</div>
-          <div class="cn">开路电压</div>
-        </div>
+    <section class="triangle">
+      <div id="container">
+          <div id="dots"></div>
       </div>
-      <div class="anm2"></div>
-      <div class="anm2"></div>
-    </div>
+      <button id="dots-number-plus">+</button>
+      <button id="dots-number-minus">-</button>
+    </section>
     <!-- <image src="https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/band-international-kf-nations-202106?wid=970&hei=592&fmt=jpeg&qlt=80&.v=1623433807000" alt="图片资源获取失败"></image> -->
   </div>
   <div class="tip">
-    <p>请将手机旋转至横屏观看效果更佳</p>
+    <p style="color: #fff;">请将手机旋转至横屏观看效果更佳</p>
   </div>
     <!-- built files will be auto injected -->
 </body>
@@ -107,6 +102,111 @@
       box2.style.display = 'block';
     }, 3000);
 </script>
+<script>
+  $(function() {
+    var dots = new Dots();
+    dots.init();
+
+    $('#dots-number-plus').click(function() {
+        dots.addLine();
+    });
+    $('#dots-number-minus').click(function() {
+        dots.removeLine();
+    });
+
+    });
+
+    var Dots = function() {
+
+    this.angle = 90;
+    this.delay = 0;
+    this.nbDots = 3;
+    this.duration = 3;
+    this.$container = $('#dots');
+
+    }
+
+    Dots.prototype = {
+
+    init: function() {
+
+        for (i = 0; i < this.nbDots; i++) {
+
+            var $line = this.createLine();
+            var $dot = this.createDot();
+
+            $line.append($dot);
+            $line
+                .hide()
+                .appendTo(this.$container)
+                .fadeIn(200)
+                .css({
+                    'transform': 'rotate(' + this.angle + 'deg)'
+                });
+
+            this.delay -= this.duration / (this.nbDots * 2);
+            this.angle += 180 / this.nbDots;
+        }
+
+    },
+
+    createLine: function() {
+        return $('<div/>', {
+            class: 'line'
+        });
+    },
+
+    createDot: function() {
+
+        return $('<div/>', {
+            class: 'dot'
+        }).css({
+            'animation-delay': this.delay + 's',
+            'animation-duration': this.duration + 's'
+        });
+
+    },
+
+    addLine: function() {
+
+        this.nbDots += 1;
+        this.createLine().appendTo(this.$container);
+        this.update();
+
+    },
+
+    removeLine: function() {
+        if (this.nbDots > 1) {
+            this.nbDots -= 1;
+            $('.line:last').remove();
+            this.update();
+        }
+    },
+
+    update: function() {
+
+        this.angle = 0;
+        this.delay = 0;
+
+        var that = this;
+
+        $('.line').map(function() {
+
+            $(this).find('.dot').hide().remove();
+            $(this).css({
+                'transform': 'rotate(' + that.angle + 'deg)'
+            });
+            $(this).append(that.createDot());
+
+            that.delay -= that.duration / (that.nbDots * 2);
+            that.angle += 180 / that.nbDots;
+
+        });
+
+    }
+
+    };
+</script>
 <style>
    img{
      /* width: 100%;
@@ -159,4 +259,102 @@
       height: 100vh;
     }
   }
+
+
+  /* 直线运动 */
+  #container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+#dots {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+.line {
+    position: absolute;
+    width: 2px;
+    background-color: rgba(255, 255, 255, 0.2);
+    height: 100%;
+    transition: all 1s ease;
+    border-radius: 50%;
+}
+.line:nth-child(1) {
+  top: 0;
+  left: 50%;
+}
+.line:nth-child(2) {
+  top: 44%;
+  left: 36%;
+}
+.line:nth-child(3) {
+  top: 44%;
+  right: 36%;
+}
+.dot {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+    top: 0px;
+    left: -9px;
+    border-radius: 50%;
+    transition: all 0.2s;
+    animation: example 2s ease-in-out infinite;
+    opacity: 1;
+}
+.dot.hidden {
+    animation-iteration-count: 1;
+}
+@keyframes rot {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+@keyframes example {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(250px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+button {
+    position: absolute;
+    top: 15px;
+    background-color: rgba(255, 255, 255, 0);
+    outline: none;
+    opacity: 0.3;
+    margin: 0;
+    padding: 0;
+    z-index: 999;
+    font-size: 20px;
+    color: white;
+    border-radius: 50%;
+    border: 2px solid white;
+    line-height: 96px;
+    width: 100px;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+#dots-number-plus {
+    left: 15px;
+}
+#dots-number-minus {
+    right: 15px;
+}
+button:hover,
+button:active {
+    opacity: 1;
+}
 </style>
