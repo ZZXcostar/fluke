@@ -20,6 +20,7 @@
     <link rel="stylesheet" type="text/css" href="./style.css">
     <link rel="stylesheet" type="text/css" href="./triangle.css">
     <script src="./jq.min.js"></script>
+    
 
 </head>
 
@@ -36,15 +37,29 @@
     </header>
     <div class="warp">
       <div class="anm1">
-        <div class="bg1"><img src="./img/1-0.9998.png" class="img1" />
+        <div class="bg1">
+          <img src="./img/1-0.9998.png" class="img1" />
           <img class="img2" src="./img/1-0.9999.png" /><img class="img3" src="./img/1-mΩ.png"></div>
         <div class="an1Title">
           <div>ocv</div>
           <div class="cn">开路电压</div>
         </div>
       </div>
-      <div class="anm2"></div>
-      <div class="anm2"></div>
+      <div class="anm2">
+        <div class="img2box">
+          <img src="./img/2-1.png" /><img src="./img/2-1.png" />
+          <img src="./img/dian.png"/><img src="./img/ling.png"/>
+          <img src="./img/ling.png"/><img src="./img/ling.png"/>
+          <img src="./img/ling.png"/><img src="./img/ling.png"/>
+          <img src="./img/ling.png"/>
+          <img src="./img/2-V.png"/>
+          <div class="an2Title">
+            <div>ACR</div>
+            <div class="cn">交流内阻</div>
+          </div>
+        </div>
+      </div>
+      <div class="anm3"></div>
     </div>
     <!-- <image src="https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/band-international-kf-nations-202106?wid=970&hei=592&fmt=jpeg&qlt=80&.v=1623433807000" alt="图片资源获取失败"></image> -->
   </div>
@@ -57,6 +72,7 @@
 </html>
 <!-- <script src='http://res.wx.qq.com/open/js/jweixin-1.2.0.js'></script>
 <script src='./static/js/nativeShare.js'></script> -->
+<script src="./index.js"></script>
 <script>
     // let vm=new Vue({
     //     data:{},
@@ -74,38 +90,38 @@
         
     // }
     
-    (function(doc, win) {
-        var docEl = doc.documentElement,
-            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
-            recalc = function() {
-                var clientWidth = docEl.clientWidth;
-                if (!clientWidth) return;
-                if (clientWidth >= 750) {
-                    // docEl.style.fontSize = '100px';
-                } else {
-                    // docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
-                }
-            };
-        if (!doc.addEventListener) return;
-        win.addEventListener(resizeEvt, recalc, false);
-        doc.addEventListener('DOMContentLoaded', recalc, false);
+    // (function(doc, win) {
+    //     var docEl = doc.documentElement,
+    //         resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+    //         recalc = function() {
+    //             var clientWidth = docEl.clientWidth;
+    //             if (!clientWidth) return;
+    //             if (clientWidth >= 750) {
+    //                 // docEl.style.fontSize = '100px';
+    //             } else {
+    //                 // docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+    //             }
+    //         };
+    //     if (!doc.addEventListener) return;
+    //     win.addEventListener(resizeEvt, recalc, false);
+    //     doc.addEventListener('DOMContentLoaded', recalc, false);
         
-    })(document, window);
+    // })(document, window);
      //jsonp 
      // 得到信息结果后的回调函数
     // var openidCB = function(data){
     //     alert(data);
     // };
 
-    var timerId = null
-    // 取消定时器的执行
-    clearTimeout(timerId);
-    timerId = setTimeout(function () {
-      var box1 = document.getElementsByClassName("tip")[0];
-      box1.style.display = 'none';
-      var box2 = document.getElementsByClassName("content")[0];
-      box2.style.display = 'block';
-    }, 3000);
+    // var timerId = null
+    // // 取消定时器的执行
+    // clearTimeout(timerId);
+    // timerId = setTimeout(function () {
+    //   var box1 = document.getElementsByClassName("tip")[0];
+    //   box1.style.display = 'none';
+    //   var box2 = document.getElementsByClassName("content")[0];
+    //   box2.style.display = 'block';
+    // }, 3000);
 </script>
 <style>
    img{
@@ -135,7 +151,7 @@
   }
   @media screen and (orientation: portrait) {
     .content {
-      display: none;
+      /* display: none; */
       position: absolute;
       width: 100vh;
       height: 100vw;
@@ -151,7 +167,7 @@
 
   @media screen and (orientation: landscape) {
     .content {
-      display: none;
+      /* display: none; */
       position: absolute;
       top: 0;
       left: 0;
