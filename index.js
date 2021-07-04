@@ -52,7 +52,7 @@ function cnver2() {
       
       $(".an3Title .cn").animate({
           fontSize: '12px'
-      },250,cnver3);
+      },2000,cnver3);
       $(".img3box div").eq(0).animate({
         left:"40%",
         fontSize: '38px'
