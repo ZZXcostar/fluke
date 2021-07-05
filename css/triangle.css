@@ -10,17 +10,24 @@
   margin-left: 30%;
   overflow: hidden;
 }
+.intro{
+  animation:fade 2s infinite;
+  -webkit-animation:fade 2s infinite;
+}
 @keyframes fade {
   0% {
     opacity: 0;
   }
   20% {
+    opacity: 0.4;
+  }
+  35% {
     opacity: 0.6;
   }
   50% {
     opacity: 0.8;
   }
-  70% {
+  60% {
     opacity: 1;
   }
   100% {

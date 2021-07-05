@@ -127,39 +127,47 @@
 <script>
 $(function(){
     $(".lineRight").fadeIn()
-    $('.lineImg3').animate({left:'83%'},2000,setblack1);
+    $(".lineImg3").addClass("intro");
+    $('.lineImg3').animate({left:'83%',opacity: '0'},2000,setblack1);
     $('.lineImgLine3').animate({left:'0%'},2000);
     setTimeout(() => {
       $(".lineTop").fadeIn()
-      $('.lineImg1').animate({left:'83%'},2000,setblack2);
+      $(".lineImg1").addClass("intro");
+      $('.lineImg1').animate({left:'83%',opacity: '0'},2000,setblack2);
       $('.lineImgLine1').animate({left:'0%'},2000);
       $('.lineImg1').css('left', '0%')
     }, 2000);
     setTimeout(() => {
       $(".lineLeft").fadeIn()
-      $('.lineImg2').animate({left:'83%'},2000,setblack3);
+      $(".lineImg2").addClass("intro");
+      $('.lineImg2').animate({left:'83%',opacity: '0'},2000,setblack3);
       $('.lineImgLine2').animate({left:'0%'},2000);
       $('.lineImg2').css('left', '0%')
     }, 4000);
 
     function setblack1(){
       $('.lineImg3').css('left', '0%')
-      $('.lineImg3').css('opacity', '0')
+      $('.lineImg3').removeClass('intro')
     }
     function setblack2(){
       $('.lineImg1').css('left', '0%')
-      $('.lineImg1').css('opacity', '0')
+      $('.lineImg1').removeClass('intro')
     }
     function setblack3(){
       $('.lineImg2').css('left', '0%')
-      $('.lineImg2').css('opacity', '0')
+      $('.lineImg2').removeClass('intro')
     }
     setTimeout(() => {
         let css = {left:'83%'};
         setInterval(function(){
-            $('.lineImg1').css("-webkit-animation","fade 2s infinite");
-            $('.lineImg2').css("-webkit-animation","fade 2s infinite");
-            $('.lineImg3').css("-webkit-animation","fade 2s infinite");
+            $('.lineImg1').css("animation","fade 2s infinite");
+            $('.lineImg2').css("animation","fade 2s infinite");
+            $('.lineImg3').css("animation","fade 2s infinite");
+            
+            $('.lineImg1').fadeIn()
+            $('.lineImg2').fadeIn()
+            $('.lineImg3').fadeIn()
+            
             $('.lineImg1').animate(css,2000,rowBack1);
             $('.lineImg2').animate(css,2000,rowBack2);
             $('.lineImg3').animate(css,2000,rowBack3);
@@ -167,16 +175,19 @@ $(function(){
         function rowBack1(){
             if(css.left==='83%'){
                 $('.lineImg1').css('left', '0%')
+                $('.lineImg1').fadeOut()
             }
         }
         function rowBack2(){
             if(css.left==='83%'){
                 $('.lineImg2').css('left', '0%')
+                $('.lineImg2').fadeOut()
             }
         }
         function rowBack3(){
             if(css.left==='83%'){
                 $('.lineImg3').css('left', '0%')
+                $('.lineImg3').fadeOut()
             }
         }
     }, 6500);
