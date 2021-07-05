@@ -35,19 +35,33 @@
         <a class="headerHerf">下载详细参数</a>
       </div>
     </header>
-    <section class="triangle">
-      <div id="container">
-          <div id="dots"></div>
-      </div>
-      <button id="dots-number-plus">+</button>
-      <button id="dots-number-minus">-</button>
-      <p><strong>注释：</strong>Internet Explorer 9 以及更早的版本不支持 animation 属性。</p>
-      <div class="test"></div>
-      <div class="triangle">
-        <div class="line1"></div>
-        <div class="line2"></div>
-        <div class="line3"></div>
-      </div>
+    <!-- 光线运动开始 -->
+    <!-- <div>
+        <p><strong>注释：</strong>Internet Explorer 9 以及更早的版本不支持 animation 属性。</p>
+        <div class="test"></div>
+    </div> -->
+    <!-- 线条运动开始 -->
+    <section class="pageCenter">
+        <div class="triangle">
+            <div class="line lineTop">
+                <div class="lineImgContent">
+                    <img class="lineImgLine1" src="./img/4-光线1-1.png">
+                    <img class="lineImg1" src="./img/4-光点1-2.png" />
+                </div>
+            </div>
+            <div class="line lineLeft">
+                <div class="lineImgContent">
+                    <img class="lineImgLine2" src="./img/4-光线1-1.png">
+                    <img class="lineImg2" src="./img/4-光点1-2.png" />
+                </div>
+            </div>
+            <div class="line lineRight">
+                <div class="lineImgContent">
+                    <img class="lineImgLine3" src="./img/4-光线1-1.png">
+                    <img class="lineImg3" src="./img/4-光点1-2.png" />
+                </div>
+            </div>
+        </div>
     </section>
     <!-- <image src="https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/band-international-kf-nations-202106?wid=970&hei=592&fmt=jpeg&qlt=80&.v=1623433807000" alt="图片资源获取失败"></image> -->
   </div>
@@ -100,120 +114,74 @@
     //     alert(data);
     // };
 
-    var timerId = null
-    // 取消定时器的执行
-    clearTimeout(timerId);
-    timerId = setTimeout(function () {
-      var box1 = document.getElementsByClassName("tip")[0];
-      box1.style.display = 'none';
-      var box2 = document.getElementsByClassName("content")[0];
-      box2.style.display = 'block';
-    }, 3000);
+    // var timerId = null
+    // // 取消定时器的执行
+    // clearTimeout(timerId);
+    // timerId = setTimeout(function () {
+    //   var box1 = document.getElementsByClassName("tip")[0];
+    //   box1.style.display = 'none';
+    //   var box2 = document.getElementsByClassName("content")[0];
+    //   box2.style.display = 'block';
+    // }, 3000);
 </script>
 <script>
-  $(function() {
-    var dots = new Dots();
-    dots.init();
+$(function(){
+    $(".lineRight").fadeIn()
+    $('.lineImg3').animate({left:'83%'},2000,setblack1);
+    $('.lineImgLine3').animate({left:'0%'},2000);
+    setTimeout(() => {
+      $(".lineTop").fadeIn()
+      $('.lineImg1').animate({left:'83%'},2000,setblack2);
+      $('.lineImgLine1').animate({left:'0%'},2000);
+      $('.lineImg1').css('left', '0%')
+    }, 2000);
+    setTimeout(() => {
+      $(".lineLeft").fadeIn()
+      $('.lineImg2').animate({left:'83%'},2000,setblack3);
+      $('.lineImgLine2').animate({left:'0%'},2000);
+      $('.lineImg2').css('left', '0%')
+    }, 4000);
 
-    $('#dots-number-plus').click(function() {
-        dots.addLine();
-    });
-    $('#dots-number-minus').click(function() {
-        dots.removeLine();
-    });
-
-    });
-
-    var Dots = function() {
-
-    this.angle = 90;
-    this.delay = 0;
-    this.nbDots = 3;
-    this.duration = 3;
-    this.$container = $('#dots');
-
+    function setblack1(){
+      $('.lineImg3').css('left', '0%')
+      $('.lineImg3').css('opacity', '0')
     }
-
-    Dots.prototype = {
-
-    init: function() {
-
-        for (i = 0; i < this.nbDots; i++) {
-
-            var $line = this.createLine();
-            var $dot = this.createDot();
-
-            $line.append($dot);
-            $line
-                .hide()
-                .appendTo(this.$container)
-                .fadeIn(200)
-                .css({
-                    'transform': 'rotate(' + this.angle + 'deg)'
-                });
-
-            this.delay -= this.duration / (this.nbDots * 2);
-            this.angle += 180 / this.nbDots;
-        }
-
-    },
-
-    createLine: function() {
-        return $('<div/>', {
-            class: 'line'
-        });
-    },
-
-    createDot: function() {
-
-        return $('<div/>', {
-            class: 'dot'
-        }).css({
-            'animation-delay': this.delay + 's',
-            'animation-duration': this.duration + 's'
-        });
-
-    },
-
-    addLine: function() {
-
-        this.nbDots += 1;
-        this.createLine().appendTo(this.$container);
-        this.update();
-
-    },
-
-    removeLine: function() {
-        if (this.nbDots > 1) {
-            this.nbDots -= 1;
-            $('.line:last').remove();
-            this.update();
-        }
-    },
-
-    update: function() {
-
-        this.angle = 0;
-        this.delay = 0;
-
-        var that = this;
-
-        $('.line').map(function() {
-
-            $(this).find('.dot').hide().remove();
-            $(this).css({
-                'transform': 'rotate(' + that.angle + 'deg)'
-            });
-            $(this).append(that.createDot());
-
-            that.delay -= that.duration / (that.nbDots * 2);
-            that.angle += 180 / that.nbDots;
-
-        });
-
+    function setblack2(){
+      $('.lineImg1').css('left', '0%')
+      $('.lineImg1').css('opacity', '0')
     }
-
-    };
+    function setblack3(){
+      $('.lineImg2').css('left', '0%')
+      $('.lineImg2').css('opacity', '0')
+    }
+    setTimeout(() => {
+        let css = {left:'83%'};
+        setInterval(function(){
+            $('.lineImg1').css("-webkit-animation","fade 2s infinite");
+            $('.lineImg2').css("-webkit-animation","fade 2s infinite");
+            $('.lineImg3').css("-webkit-animation","fade 2s infinite");
+            $('.lineImg1').animate(css,2000,rowBack1);
+            $('.lineImg2').animate(css,2000,rowBack2);
+            $('.lineImg3').animate(css,2000,rowBack3);
+        },50);
+        function rowBack1(){
+            if(css.left==='83%'){
+                $('.lineImg1').css('left', '0%')
+            }
+        }
+        function rowBack2(){
+            if(css.left==='83%'){
+                $('.lineImg2').css('left', '0%')
+            }
+        }
+        function rowBack3(){
+            if(css.left==='83%'){
+                $('.lineImg3').css('left', '0%')
+            }
+        }
+    }, 6500);
+    
+})
 </script>
 <style>
    img{
@@ -235,15 +203,14 @@
     padding: 0 30px;
     margin-top: 77%;
    }
-   
-  .tip{
-    display: block;
+   .tip{
+    display: none;
     width: 100vw;
     height: 100vh;
   }
   @media screen and (orientation: portrait) {
     .content {
-      display: none;
+      display: black;
       position: absolute;
       width: 100vh;
       height: 100vw;
@@ -259,7 +226,7 @@
 
   @media screen and (orientation: landscape) {
     .content {
-      display: none;
+      display: black;
       position: absolute;
       top: 0;
       left: 0;
@@ -267,122 +234,4 @@
       height: 100vh;
     }
   }
-
-
-  /* 直线运动 */
-  #container {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    width: 100%;
-}
-#dots {
-    position: relative;
-    height: 100%;
-    width: 100%;
-}
-.line {
-    position: absolute;
-    width: 2px;
-    background-color: rgba(255, 255, 255, 0.2);
-    height: 100%;
-    transition: all 1s ease;
-    border-radius: 50%;
-}
-.line:nth-child(1) {
-  top: 0;
-  left: 50%;
-}
-.line:nth-child(2) {
-  top: 44%;
-  left: 36%;
-}
-.line:nth-child(3) {
-  top: 44%;
-  right: 36%;
-}
-.dot {
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    background-color: #fff;
-    top: 0px;
-    left: -9px;
-    border-radius: 50%;
-    transition: all 0.2s;
-    animation: example 2s ease-in-out infinite;
-    opacity: 1;
-}
-.dot.hidden {
-    animation-iteration-count: 1;
-}
-@keyframes rot {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
-}
-@keyframes example {
-    0% {
-        transform: translateY(0px);
-    }
-    50% {
-        transform: translateY(250px);
-    }
-    100% {
-        transform: translateY(0);
-    }
-}
-button {
-    position: absolute;
-    top: 15px;
-    background-color: rgba(255, 255, 255, 0);
-    outline: none;
-    opacity: 0.3;
-    margin: 0;
-    padding: 0;
-    z-index: 999;
-    font-size: 20px;
-    color: white;
-    border-radius: 50%;
-    border: 2px solid white;
-    line-height: 96px;
-    width: 100px;
-    cursor: pointer;
-    transition: opacity 0.3s ease;
-}
-#dots-number-plus {
-    left: 15px;
-}
-#dots-number-minus {
-    right: 15px;
-}
-button:hover,
-button:active {
-    opacity: 1;
-}
-
-.test{
-  width:100px;
-  height:100px;
-  background:red;
-  position:relative;
-  animation:mymove 5s infinite;
-  -webkit-animation:mymove 5s infinite; /*Safari and Chrome*/
-}
-@keyframes mymove
-{
-    from {left:0px;}
-    to {left:200px;}
-}
-
-@-webkit-keyframes mymove /*Safari and Chrome*/
-{
-    from {left:0px;}
-    to {left:200px;}
-}
 </style>
