@@ -159,7 +159,7 @@ $(function(){
     }
     setTimeout(() => {
         let css = {left:'83%'};
-        setInterval(function(){
+        setInterval(function(){ // 这里要改成回调 定时器有性能问题
             $('.lineImg1').css("animation","fade 2s infinite");
             $('.lineImg2').css("animation","fade 2s infinite");
             $('.lineImg3').css("animation","fade 2s infinite");
