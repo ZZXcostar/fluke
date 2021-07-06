@@ -55,6 +55,7 @@
 .pageCenter .product1_left{
   position: absolute;
   top: 21%;
+  /* 百分比用于移动缩放 */
   left: 2%;
   height: 27%;
   width: 21%;
@@ -66,6 +67,7 @@
 .pageCenter .product1_center{
   position: absolute;
   top: 29%;
+  /* 百分比用于移动缩放 */
   left: 39%;
   height: 48%;
   width: 21%;
@@ -77,6 +79,7 @@
 .pageCenter .product1_right{
   position: absolute;
   top: 52%;
+  /* 百分比用于移动缩放 */
   right: 0%;
   height: 38%;
   width: 18%;
@@ -87,9 +90,10 @@
 }
 .pageCenter .triangle_content{
   /* width: 398px;
-  height: 334px; */
+  height: 334px; 用于PC*/
   width: 37%;
   height: 89%;
+  /* 用于移动缩放 */
 }
 
 .pageCenter .triangle{
