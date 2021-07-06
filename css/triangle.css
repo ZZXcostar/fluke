@@ -1,13 +1,101 @@
 .pageCenter{
   width: 100%;
-  height: 50%;
+  height: 70%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
+.pageCenter .product_title{
+  width: 400px;
+  line-height: 37px;
+  color: #fabe0e;
+  font-size: 28px;
+  text-align: center;
+}
+/* 所有设备、宽度必须大于800或者竖屏的时候，true */
+/* @media all and (min-width:300px),(orientation:portrait){
+  .pageCenter .product_title{
+    font-size: 20px;
+  }
+} */
+@media only screen and (max-width: 1200px) {
+  .pageCenter .product_title{
+    font-size: 26px;
+  }
+}
+@media only screen and (max-width: 1000px) {
+  .pageCenter .product_title{
+    font-size: 24px;
+  }
+}
+@media only screen and (max-width: 800px) {
+  .pageCenter .product_title{
+    font-size: 22px;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .pageCenter .product_title{
+    font-size: 20px;
+  }
+}
+.pageCenter .product_title .product_title_top:nth-child(3){
+  letter-spacing: 4px;
+}
+.pageCenter .product_title .product_title_bottom{
+  letter-spacing: 4px;
+}
+.pageCenter .product_dec{
+  width: 400px;
+  color: #fff;
+  font-size: 18px;
+  text-align: center; 
+  letter-spacing: 2px;
+}
+.pageCenter .product1_left{
+  position: absolute;
+  top: 21%;
+  left: 2%;
+  height: 27%;
+  width: 21%;
+  opacity: 0.2;
+}
+.pageCenter .product1_left img{
+  height: 100%;
+}
+.pageCenter .product1_center{
+  position: absolute;
+  top: 29%;
+  left: 39%;
+  height: 48%;
+  width: 21%;
+  opacity: 0.9;
+}
+.pageCenter .product1_center img{
+  height: 100%;
+}
+.pageCenter .product1_right{
+  position: absolute;
+  top: 52%;
+  right: 0%;
+  height: 38%;
+  width: 18%;
+  opacity: 0.2;
+}
+.pageCenter .product1_right img{
+  height: 100%;
+}
+.pageCenter .triangle_content{
+  /* width: 398px;
+  height: 334px; */
+  width: 37%;
+  height: 89%;
+}
+
 .pageCenter .triangle{
   height: 100%;
   position: relative;
-  width: 40%;
-  margin-top: 8%;
-  margin-left: 30%;
+  width: 100%;
   overflow: hidden;
 }
 .intro{
