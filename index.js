@@ -25,7 +25,7 @@ function cnOver() {
         $(".img2box img").eq(9).fadeIn({duration: 4500});
         $(".an2Title").show()
         $(".an2Title").animate({
-            right:"-=42%",
+            right:"-=41%",
             top:"-=39%",
             fontSize: '.15rem'
         },2000);
