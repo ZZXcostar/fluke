@@ -158,36 +158,43 @@ $(function(){
       $('.lineImg2').removeClass('intro')
     }
     setTimeout(() => {
+        // $('.lineImg1').css("animation","fade 2s infinite");
+        // $('.lineImg2').css("animation","fade 2s infinite");
+        // $('.lineImg3').css("animation","fade 2s infinite");
         let css = {left:'83%'};
-        setInterval(function(){ // 这里要改成回调 定时器有性能问题
-            $('.lineImg1').css("animation","fade 2s infinite");
-            $('.lineImg2').css("animation","fade 2s infinite");
-            $('.lineImg3').css("animation","fade 2s infinite");
-            
-            $('.lineImg1').fadeIn()
-            $('.lineImg2').fadeIn()
-            $('.lineImg3').fadeIn()
-            
-            $('.lineImg1').animate(css,2000,rowBack1);
-            $('.lineImg2').animate(css,2000,rowBack2);
-            $('.lineImg3').animate(css,2000,rowBack3);
-        },50);
+        let interval = null
+        clearInterval(interval)
+        interval = setInterval(function(){ // 这里要改成回调 定时器有性能问题
+          $(".lineImg1").addClass("intro");
+          $(".lineImg2").addClass("intro");
+          $(".lineImg3").addClass("intro");
+
+          $('.lineImg1').animate(css,2000,rowBack1);
+          $('.lineImg2').animate(css,2000,rowBack2);
+          $('.lineImg3').animate(css,2000,rowBack3);
+          // $('.lineImg1').fadeIn()
+          //   $('.lineImg2').fadeIn()
+          //   $('.lineImg3').fadeIn()
+        },0);
         function rowBack1(){
             if(css.left==='83%'){
                 $('.lineImg1').css('left', '0%')
-                $('.lineImg1').fadeOut()
+                $(".lineImg1").removeClass("intro");
+                // $('.lineImg1').fadeOut()
             }
         }
         function rowBack2(){
             if(css.left==='83%'){
                 $('.lineImg2').css('left', '0%')
-                $('.lineImg2').fadeOut()
+                $(".lineImg2").removeClass("intro");
+                // $('.lineImg2').fadeOut()
             }
         }
         function rowBack3(){
             if(css.left==='83%'){
                 $('.lineImg3').css('left', '0%')
-                $('.lineImg3').fadeOut()
+                $(".lineImg3").removeClass("intro");
+                // $('.lineImg3').fadeOut()
             }
         }
     }, 6500);
