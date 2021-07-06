@@ -129,19 +129,19 @@ $(function(){
     $(".lineRight").fadeIn()
     $(".lineImg3").addClass("intro");
     $('.lineImg3').animate({left:'83%',opacity: '0'},2000,setblack1);
-    $('.lineImgLine3').animate({left:'0%'},2000);
+    $('.lineImgLine3').animate({left:'0%',width: '100%'},2000);
     setTimeout(() => {
       $(".lineTop").fadeIn()
       $(".lineImg1").addClass("intro");
       $('.lineImg1').animate({left:'83%',opacity: '0'},2000,setblack2);
-      $('.lineImgLine1').animate({left:'0%'},2000);
+      $('.lineImgLine1').animate({left:'0%',width: '100%'},2000);
       $('.lineImg1').css('left', '0%')
     }, 2000);
     setTimeout(() => {
       $(".lineLeft").fadeIn()
       $(".lineImg2").addClass("intro");
       $('.lineImg2').animate({left:'83%',opacity: '0'},2000,setblack3);
-      $('.lineImgLine2').animate({left:'0%'},2000);
+      $('.lineImgLine2').animate({left:'0%', width: '100%'},2000);
       $('.lineImg2').css('left', '0%')
     }, 4000);
 
@@ -158,9 +158,6 @@ $(function(){
       $('.lineImg2').removeClass('intro')
     }
     setTimeout(() => {
-        // $('.lineImg1').css("animation","fade 2s infinite");
-        // $('.lineImg2').css("animation","fade 2s infinite");
-        // $('.lineImg3').css("animation","fade 2s infinite");
         let css = {left:'83%'};
         let interval = null
         clearInterval(interval)
@@ -172,9 +169,6 @@ $(function(){
           $('.lineImg1').animate(css,2000,rowBack1);
           $('.lineImg2').animate(css,2000,rowBack2);
           $('.lineImg3').animate(css,2000,rowBack3);
-          // $('.lineImg1').fadeIn()
-          //   $('.lineImg2').fadeIn()
-          //   $('.lineImg3').fadeIn()
         },0);
         function rowBack1(){
             if(css.left==='83%'){

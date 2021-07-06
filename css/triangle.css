@@ -39,11 +39,11 @@
   width: 86%;
   height: 1px;
   /* box-shadow: 0px 0px 10px 1px rgba(41, 54, 129,0.7); */
-  background:linear-gradient(
+  /* background:linear-gradient(
     -200deg,
      rgba(255,255,255,0.00) 0%,
      rgb(41, 54, 129) 53%, 
-     rgba(255,255,255,0.00) 99%)
+     rgba(255,255,255,0.00) 99%) */
 }
 .line:nth-child(2){
   transform: rotate(122deg);
@@ -74,98 +74,54 @@
   top: 52%;
   left: 36%;
   width: 77%;
-  /* transition: width 2s;
-  -webkit-transition: width 2s;
-  -moz-transition: width 2s;
-  -ms-transition: width 2s;
-  -o-transition: width 2s; */
 }
 .lineRight {
   display: none;
   top: 52%;
   right: 36%;
   width: 77%;
-  /* transition: width 2s;
-  -webkit-transition: width 2s;
-  -moz-transition: width 2s;
-  -ms-transition: width 2s;
-  -o-transition: width 2s; */
 }
-/* .sss{
-  animation: fullexpand 2s;
-  -moz-animation:fullexpand 2s;
-  -webkit-animation: fullexpand 2s;
-}
-@keyframes fullexpand{
-	0%{width:0px;}
-	100%{ width:100%;}	
-}
-@-moz-keyframes fullexpand{
-	0%{width:0px;}
-	100%{ width:100%;}	
-}
-@-webkit-keyframes fullexpand{
-	0%{width:0px;}
-	100%{ width:100%;}	
-} */
 .lineImgContent{
   position: relative;
 }
 .lineImg1{
   position: absolute;
   left: 0%;
-  top: -33px;
+  top: -34px;
   width: 30%;
   height: 66px;
 }
 .lineImgLine1{
   position: absolute;
   top: -19px;
-  width: 100%;
+  width: 20%;
   height: 38px;
-  left: -100%;
+  left: 0%;
 }
 .lineImg2{
   position: absolute;
   left: 0%;
-  top: -33px;
+  top: -34px;
   width: 30%;
   height: 66px;
 }
 .lineImgLine2{
   position: absolute;
   top: -19px;
-  width: 100%;
+  width: 20%;
   height: 38px;
-  left: -100%;
+  left: 0%;
 }
 .lineImg3{
   position: absolute;
-  top: -33px;
+  top: -34px;
   width: 30%;
   height: 66px;
 }
 .lineImgLine3{
   position: absolute;
   top: -19px;
-  width: 100%;
+  width: 20%;
   height: 38px;
-  left: -100%;
+  left: 0%;
 }
-/* .test{
-  width:100px;
-  height:100px;
-  background:red;
-  position:relative;
-  animation:mymove 5s infinite;
-  -webkit-animation:mymove 5s infinite;
-}
-@keyframes mymove{
-  from {left:0px;}
-  to {left:200px;}
-}
-
-@-webkit-keyframes mymove{
-  from {left:0px;}
-  to {left:200px;}
-} */
