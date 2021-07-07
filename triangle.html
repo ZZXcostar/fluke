@@ -21,12 +21,12 @@
 
 <body>
   <div class="content">
-    <header class="flexBox d-flex justify-between">
-      <div class="flexLeft">
+    <header class="header d-flex justify-between align-center">
+      <div class="header_left d-flex align-center">
         <img src="./img/logo.png" />
       </div>
-      <div class="flexRight">
-        <span class="headerText">全国热线: 400-800-3435</span>
+      <div class="header_right d-flex align-center justify-between">
+        <div class="headerText">全国热线: 400-800-3435</div>
         <div onclick="ShowDiv('MyDiv','fade')" class="headerHerf">下载详细参数</div>
       </div>
     </header>
@@ -91,7 +91,7 @@
           <span>高精度电池测试仪</span>
         </div>
       </div>
-      <div class="triangle_content">
+      <div class="triangle_content triangle_content_big">
         <div class="triangle">
             <div class="line lineTop">
                 <div class="lineImgContent">
@@ -115,7 +115,7 @@
         <div class="product1_left">
           <img src="./img/4-产品3.png">
         </div>
-        <div class="product1_center">
+        <div class="product1_center product1_center_big">
           <img src="./img/4-产品1.png">
         </div>
         <div class="product1_right">
@@ -166,28 +166,41 @@
       </div>
     </section>
     <!-- <image src="https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/band-international-kf-nations-202106?wid=970&hei=592&fmt=jpeg&qlt=80&.v=1623433807000" alt="图片资源获取失败"></image> -->
+    <footer class="footer d-flex justify-center align-center">
+      <div class="footer_text">
+        <span>©1995-2021</span>
+        <span>福禄克公司</span>
+        <span>版权所有</span>
+        <span>|</span>
+        <span>福禄克中国客户服务中心</span>
+        <span>400-810-3435</span>
+        <span>|</span>
+        <span>隐私政策</span>
+        <span>|</span>
+        <span>沪ICP备11037028号-20</span>
+      </div>
+      <div><img class="footer_icon" src="./img/1-国徽.png"></div>
+    </footer>
   </div>
   <div class="tip">
     <p style="color: #fff;">请将手机旋转至横屏观看效果更佳</p>
   </div>
   <div id="MyDiv" class="white_content">
     <div style="text-align: right; cursor: default;">
-     <div style="font-size: 16px; position: absolute;
-     right: 20px; cursor: pointer;
-     top: 12px;" onclick="CloseDiv('MyDiv','fade')">
-    <img src="./img/6-X.png"></div>
-    </div>
-    <div class="dialog">
-      <h1>下载详情参数</h1>
-      <div class="inputbox">名字:<input /></div>
-      <div class="inputbox">邮箱:<input /></div>
-      <div class="inputbox">电话:<input /></div>
-      <div class="inputbox">公司:<input /></div>
-      <div class="info">*点击提交即表明您同意福禄克的隐私政策</div>
-      <div class="sbumitBox">
-        <button class="sbumit">提交</button>
+     <div class="icon_close" onclick="CloseDiv('MyDiv','fade')">
+      <img src="./img/6-X.png"></div>
       </div>
-    </div>
+      <div class="dialog">
+        <h1>下载详情参数</h1>
+        <div class="inputbox">名字:<input /></div>
+        <div class="inputbox">邮箱:<input /></div>
+        <div class="inputbox">电话:<input /></div>
+        <div class="inputbox">公司:<input /></div>
+        <div class="info">*点击提交即表明您同意福禄克的隐私政策</div>
+        <div class="sbumitBox">
+          <button class="sbumit">提交</button>
+        </div>
+      </div>
    </div>
     <!-- built files will be auto injected -->
 </body>

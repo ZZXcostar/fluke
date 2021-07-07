@@ -60,9 +60,9 @@ function cnver2() {
     setTimeout(function(){
         $(".an3Title").show()
         $(".an3Title").animate({
-            top:"150%",
-            right:"52%",
-            fontSize: '.16rem'
+            top:"94%",
+            right:"46%",
+            fontSize: '.14rem'
         },2000);
       
       $(".an3Title .cn").animate({
@@ -70,48 +70,31 @@ function cnver2() {
       },2000,cnver3);
       $(".img3box div").eq(0).animate({
         left:"40%",
-        fontSize: '38px'
-    },1500,'swing')
+    },2000,'swing')
     $(".img3box div").eq(1).animate({
-        left:"30%",
-        top:"-50%",
-        fontSize: '38px'
-    },1350,'swing')
+        left:"60%",
+    },2000,'swing')
     $(".img3box div").eq(2).animate({
         left:"60%",
-        top:"-20%",
-        fontSize: '38px'
-    },1300,'swing')
+    },2000,'swing')
     $(".img3box div").eq(3).animate({
-        left:"90%",
-        top:"-10%",
-        fontSize: '38px'
-    },500,'swing')
+        left:"67%",
+    },2000,'swing')
     $(".img3box div").eq(4).animate({
         left:"80%",
-        top:"10%",
-        fontSize: '38px'
-    },1900,'swing')
+    },2000,'swing')
     $(".img3box div").eq(5).animate({
         left:"30%",
-        top:"50%",
-        fontSize: '38px'
     },2000,'swing')
     $(".img3box div").eq(6).animate({
         left:"20%",
-        top:"40%",
-        fontSize: '38px'
-    },1200,'swing')
+    },2000,'swing')
     $(".img3box div").eq(7).animate({
         left:"40%",
-        top:"10%",
-        fontSize: '38px'
-    },3500,'swing')
+    },2000,'swing')
     $(".img3box div").eq(8).animate({
-        left:"0%",
-        top:"0%",
-        fontSize: '38px'
-    },4000,'swing')
+        left:"16%",
+    },2000,'swing')
     },200);
 }
 function cnver3() {
@@ -161,8 +144,10 @@ function goamian(){
       $('.lineImg2').css('left', '0%')
       $('.lineImg2').removeClass('intro')
     }
-    $(".product1_center").fadeIn(2000)
     setTimeout(() => {
+        $(".product1_left").fadeIn(2000)
+        $(".product1_center").fadeIn(2000)
+        $(".product1_right").fadeIn(2000)
         let css = {left:'83%'};
         let interval = null
         clearInterval(interval)
