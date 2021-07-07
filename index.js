@@ -216,12 +216,12 @@ function goamian(){
             $(".product_title").fadeOut(2000)
             $(".meritBox li .imgText").fadeIn(2000);
             $(".an1Title").animate({
-                top:"-196%",
-                left: "16%",
+                top:"-181%",
+                left: "18%",
                 fontSize: '.12rem'
             },2000);
             $(".an2Title").animate({
-                right: "3.7466%",
+                right: "-11.2534%",
                 top: "-121.0109%",
                 fontSize: '.12rem'
             },2000);
