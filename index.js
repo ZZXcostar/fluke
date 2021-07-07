@@ -1,8 +1,8 @@
 $(function(){
  $(".an1Title").animate({
-      left:"12%",
+      left:"13%",
       top:"-140%",
-      fontSize: '.2rem'
+      fontSize: '.18rem'
   },2000,'swing',cnOver);
 
 $(".an1Title .cn").animate({
@@ -13,23 +13,42 @@ setTimeout(()=>{
 },1000)
 function cnOver() {
     $(".bg1").fadeOut()
-    // $(".anm1").fadeOut()
     setTimeout(function(){
-        $(".img2box img").eq(0).fadeIn({duration: 0});
-        $(".img2box img").eq(1).fadeIn({duration: 500});
-        $(".img2box img").eq(2).fadeIn({duration: 1000});
-        $(".img2box img").eq(3).fadeIn({duration: 1500});
-        $(".img2box img").eq(4).fadeIn({duration: 2000});
-        $(".img2box img").eq(5).fadeIn({duration: 2500});
-        $(".img2box img").eq(6).fadeIn({duration: 3000});
-        $(".img2box img").eq(7).fadeIn({duration: 3500});
-        $(".img2box img").eq(8).fadeIn({duration: 4000});
-        $(".img2box img").eq(9).fadeIn({duration: 4500});
+        setTimeout(()=>{
+            $(".img2box img").eq(0).fadeIn({duration: 0});
+        },0)
+        setTimeout(()=>{
+            $(".img2box img").eq(1).fadeIn({duration: 0});
+        },250)
+        setTimeout(()=>{
+            $(".img2box img").eq(2).fadeIn({duration: 0});
+        },500)
+        setTimeout(()=>{
+            $(".img2box img").eq(3).fadeIn({duration: 0});
+        },750)
+        setTimeout(()=>{
+            $(".img2box img").eq(4).fadeIn({duration: 0});
+        },1000)
+        setTimeout(()=>{
+            $(".img2box img").eq(5).fadeIn({duration: 0});
+        },1250)
+        setTimeout(()=>{
+            $(".img2box img").eq(6).fadeIn({duration: 0});
+        },1500)
+        setTimeout(()=>{
+            $(".img2box img").eq(7).fadeIn({duration: 0});
+        },1750)
+        setTimeout(()=>{
+            $(".img2box img").eq(8).fadeIn({duration: 0});
+        },2000)
+        setTimeout(()=>{
+            $(".img2box img").eq(9).fadeIn({duration: 0});
+        },50)
         $(".an2Title").show()
         $(".an2Title").animate({
             right:"-=41%",
             top:"-=39%",
-            fontSize: '.15rem'
+            fontSize: '.14rem'
         },2000);
       
       $(".an2Title .cn").animate({
@@ -45,23 +64,8 @@ function cnOver() {
     },200);
     
 }
-$(".img1").fadeIn({duration: 0})
-setTimeout(()=>{
-    $(".img1").fadeOut({duration: 0})
-    $(".img2").fadeIn({duration: 0})
-    setTimeout(()=>{
-      $(".img2").fadeOut({duration: 0})
-      $(".img1").fadeIn({duration: 0})
-      setTimeout(()=>{
-        $(".img1").fadeOut({duration: 0})
-        $(".img2").fadeIn({duration: 0})
-      },500)
-    },500)
-},500)
-$(".img2").fadeOut({duration: 0})
-// $(".img2").fadeIn({duration: 500})
-// $(".img2").fadeOut({duration: 500})
-// $(".img1").fadeIn({duration: 500})
+$(".img1").fadeOut({duration: 1000})
+$(".img2").fadeIn({duration: 1000})
 })
 function cnver2() {
     $(".img2box").fadeOut()
@@ -117,12 +121,14 @@ function cnver3() {
     // $(".bg1").fadeOut()
     
 }
-$(".meritBox li").hover(function(){
+$(".meritBox li").mouseover(function(){
     $(".meritBox .imgText").hide();
+    // $(".meritBox .imgbox").css({top:"0px"});
     $(this).find(".imgText").show();
+    $(this).find(".imgbox").animate({top:"-20px"},100);
 });
 $(".meritBox li").mouseleave(function(){
-    // $(".meritBox .imgText").hide();
+    $(".meritBox .imgbox").animate({top:"0px"},100);
 });
 
 function goamian(){
@@ -165,6 +171,7 @@ function goamian(){
         let css = {left:'83%'};
         let interval = null
         clearInterval(interval)
+        $(".bottomBox").fadeIn()
         interval = setInterval(function(){ // 这里要改成回调 定时器有性能问题
           $(".lineImg1").addClass("intro");
           $(".lineImg2").addClass("intro");
@@ -196,7 +203,6 @@ function goamian(){
             }
         }
         setTimeout(()=>{
-            $(".triangle_content").removeClass("triangle_content_big")
             $(".product_title").animate({
                 opacity: "1",
             },2000);
@@ -239,12 +245,42 @@ function goamian(){
     }, 6500);
     
 }
-
+$(".email").blur(function(){
+    if(!isEmail($(".email").val())) {
+        $(".email").next(".verification").show()
+    }else {
+        $(".email").next(".verification").hide()
+    }
+})
+$(".phone").blur(function(){
+    if(!isCellphone($(".phone").val())) {
+        $(".phone").next(".verification").show()
+    }else {
+        $(".phone").next(".verification").hide()
+    }
+})
+$(".sbumit").click(()=>{
+    if(!isEmail($(".email").val())) {
+        $(".email").next(".verification").show()
+        
+    }else {
+        $(".email").next(".verification").hide()
+    }
+    if(!isCellphone($(".phone").val())) {
+        $(".phone").next(".verification").show()
+    }else {
+        $(".phone").next(".verification").hide()
+    }
+    if(isEmail($(".email").val())&&isCellphone($(".phone").val())){
+        CloseDiv('MyDiv','fade')
+        $(".dialog input").val("")
+    }
+})
 function ShowDiv(show_div, bg_div) {
     $("#"+show_div).fadeIn(1000)
     $("#"+bg_div).fadeIn(1000)
     var bgdiv = document.getElementById(bg_div);
-    bgdiv.style.width = document.body.scrollWidth;
+    // bgdiv.style.width = document.body.scrollWidth;
     $("#" + bg_div).height($(document).height());
    };
    //关闭弹出层
@@ -263,7 +299,7 @@ function ShowDiv(show_div, bg_div) {
     * 18段：180、181、182、183、184、185、186、187、188、189
     * 
     */
-    var pattern =  /^(13[0-9]|14[57]|15[012356789]|17[0678]|18[0-9])\d{8}$/;
+    var pattern =  /^1\d{10}$|^(0\d{2,3}-?|0\d2,3)?[1-9]\d{4,7}(-\d{1,8})?$/;
     return pattern.test(str);
 }
 function isEmail(str){
