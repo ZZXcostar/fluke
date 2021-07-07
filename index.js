@@ -7,9 +7,11 @@ $(function(){
 
 $(".an1Title .cn").animate({
     fontSize: '12px'
-},2000);
+},1000);
+setTimeout(()=>{
+  $(".an1Title .cn").fadeOut()
+},1000)
 function cnOver() {
-    $(".an1Title .cn").fadeOut()
     $(".bg1").fadeOut()
     // $(".anm1").fadeOut()
     setTimeout(function(){
@@ -32,7 +34,14 @@ function cnOver() {
       
       $(".an2Title .cn").animate({
           fontSize: '12px'
-      },2000,cnver2);
+      },1000);
+      setTimeout(()=>{
+        $(".an2Title .cn").fadeOut()
+      },1000)
+      setTimeout(()=>{
+        cnver2()
+      },2000)
+      
     },200);
     
 }
@@ -55,19 +64,24 @@ $(".img2").fadeOut({duration: 0})
 // $(".img1").fadeIn({duration: 500})
 })
 function cnver2() {
-    $(".an2Title .cn").fadeOut()
     $(".img2box").fadeOut()
     setTimeout(function(){
         $(".an3Title").show()
         $(".an3Title").animate({
-            top:"94%",
+            top:"85%",
             right:"46%",
             fontSize: '.14rem'
         },2000);
-      
+      setTimeout(()=>{
+         $(".an3Title .cn").fadeOut()
+      },1000)
       $(".an3Title .cn").animate({
-          fontSize: '12px'
-      },2000,cnver3);
+            fontSize: '12px'
+        },1000);
+      setTimeout(()=>{
+        cnver3()
+      },2000)
+      
       $(".img3box div").eq(0).animate({
         left:"40%",
     },2000,'swing')
@@ -98,7 +112,6 @@ function cnver2() {
     },200);
 }
 function cnver3() {
-    $(".an3Title .cn").fadeOut()
     $(".img3box").fadeOut()
     goamian()
     // $(".bg1").fadeOut()
@@ -148,6 +161,7 @@ function goamian(){
         $(".product1_left").fadeIn(2000)
         $(".product1_center").fadeIn(2000)
         $(".product1_right").fadeIn(2000)
+        $(".product_dec").fadeIn(2000)
         let css = {left:'83%'};
         let interval = null
         clearInterval(interval)
@@ -181,6 +195,47 @@ function goamian(){
                 // $('.lineImg3').fadeOut()
             }
         }
+        setTimeout(()=>{
+            $(".triangle_content").removeClass("triangle_content_big")
+            $(".product_title").animate({
+                opacity: "1",
+            },2000);
+            $(".bottomBox").fadeIn(2000)
+        },2000)
+        setTimeout(()=>{
+            $(".product_title").animate({
+                height :"0",
+                opacity: "0",
+            },2000);
+            $(".product_title").fadeOut(2000)
+            $(".meritBox li .imgText").fadeIn(2000);
+            $(".an1Title").animate({
+                top:"-196%",
+                left: "16%",
+                fontSize: '.12rem'
+            },2000);
+            $(".an2Title").animate({
+                right: "3.7466%",
+                top: "-121.0109%",
+                fontSize: '.12rem'
+            },2000);
+            $(".an3Title").animate({
+                top:"67%",
+                fontSize: '.12rem'
+            },2000);
+            $(".product_dec").animate({
+                marginTop:"0.2rem",
+            },2000);
+            $(".bottomBox").animate({
+                marginTop:"0.1rem",
+            },2000);
+            $(".header").animate({
+                opacity:"1",
+            },3000);
+            $(".footer").animate({
+                opacity:"1",
+            },2000);
+        },4000)
     }, 6500);
     
 }
