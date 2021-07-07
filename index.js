@@ -1,8 +1,8 @@
 $(function(){
  $(".an1Title").animate({
-      left:"12%",
+      left:"13%",
       top:"-140%",
-      fontSize: '.2rem'
+      fontSize: '.18rem'
   },2000,'swing',cnOver);
 
 $(".an1Title .cn").animate({
@@ -11,23 +11,42 @@ $(".an1Title .cn").animate({
 function cnOver() {
     $(".an1Title .cn").fadeOut()
     $(".bg1").fadeOut()
-    // $(".anm1").fadeOut()
     setTimeout(function(){
-        $(".img2box img").eq(0).fadeIn({duration: 0});
-        $(".img2box img").eq(1).fadeIn({duration: 500});
-        $(".img2box img").eq(2).fadeIn({duration: 1000});
-        $(".img2box img").eq(3).fadeIn({duration: 1500});
-        $(".img2box img").eq(4).fadeIn({duration: 2000});
-        $(".img2box img").eq(5).fadeIn({duration: 2500});
-        $(".img2box img").eq(6).fadeIn({duration: 3000});
-        $(".img2box img").eq(7).fadeIn({duration: 3500});
-        $(".img2box img").eq(8).fadeIn({duration: 4000});
-        $(".img2box img").eq(9).fadeIn({duration: 4500});
+        setTimeout(()=>{
+            $(".img2box img").eq(0).fadeIn({duration: 0});
+        },0)
+        setTimeout(()=>{
+            $(".img2box img").eq(1).fadeIn({duration: 0});
+        },250)
+        setTimeout(()=>{
+            $(".img2box img").eq(2).fadeIn({duration: 0});
+        },500)
+        setTimeout(()=>{
+            $(".img2box img").eq(3).fadeIn({duration: 0});
+        },750)
+        setTimeout(()=>{
+            $(".img2box img").eq(4).fadeIn({duration: 0});
+        },1000)
+        setTimeout(()=>{
+            $(".img2box img").eq(5).fadeIn({duration: 0});
+        },1250)
+        setTimeout(()=>{
+            $(".img2box img").eq(6).fadeIn({duration: 0});
+        },1500)
+        setTimeout(()=>{
+            $(".img2box img").eq(7).fadeIn({duration: 0});
+        },1750)
+        setTimeout(()=>{
+            $(".img2box img").eq(8).fadeIn({duration: 0});
+        },2000)
+        setTimeout(()=>{
+            $(".img2box img").eq(9).fadeIn({duration: 0});
+        },50)
         $(".an2Title").show()
         $(".an2Title").animate({
             right:"-=41%",
             top:"-=39%",
-            fontSize: '.15rem'
+            fontSize: '.14rem'
         },2000);
       
       $(".an2Title .cn").animate({
@@ -36,23 +55,8 @@ function cnOver() {
     },200);
     
 }
-$(".img1").fadeIn({duration: 0})
-setTimeout(()=>{
-    $(".img1").fadeOut({duration: 0})
-    $(".img2").fadeIn({duration: 0})
-    setTimeout(()=>{
-      $(".img2").fadeOut({duration: 0})
-      $(".img1").fadeIn({duration: 0})
-      setTimeout(()=>{
-        $(".img1").fadeOut({duration: 0})
-        $(".img2").fadeIn({duration: 0})
-      },500)
-    },500)
-},500)
-$(".img2").fadeOut({duration: 0})
-// $(".img2").fadeIn({duration: 500})
-// $(".img2").fadeOut({duration: 500})
-// $(".img1").fadeIn({duration: 500})
+$(".img1").fadeOut({duration: 1000})
+$(".img2").fadeIn({duration: 1000})
 })
 function cnver2() {
     $(".an2Title .cn").fadeOut()
@@ -60,58 +64,59 @@ function cnver2() {
     setTimeout(function(){
         $(".an3Title").show()
         $(".an3Title").animate({
-            top:"150%",
-            right:"52%",
-            fontSize: '.16rem'
+            top:"130%",
+            right:"22%",
+            fontSize: '.14rem'
         },2000);
       
       $(".an3Title .cn").animate({
           fontSize: '12px'
       },2000,cnver3);
       $(".img3box div").eq(0).animate({
-        left:"40%",
-        fontSize: '38px'
-    },1500,'swing')
-    $(".img3box div").eq(1).animate({
-        left:"30%",
-        top:"-50%",
-        fontSize: '38px'
-    },1350,'swing')
-    $(".img3box div").eq(2).animate({
-        left:"60%",
-        top:"-20%",
-        fontSize: '38px'
-    },1300,'swing')
-    $(".img3box div").eq(3).animate({
-        left:"90%",
-        top:"-10%",
-        fontSize: '38px'
-    },500,'swing')
-    $(".img3box div").eq(4).animate({
-        left:"80%",
-        top:"10%",
-        fontSize: '38px'
-    },1900,'swing')
-    $(".img3box div").eq(5).animate({
-        left:"30%",
-        top:"50%",
-        fontSize: '38px'
-    },2000,'swing')
-    $(".img3box div").eq(6).animate({
         left:"20%",
-        top:"40%",
-        fontSize: '38px'
-    },1200,'swing')
-    $(".img3box div").eq(7).animate({
+        top: "10%",
+        fontSize: '.38rem'
+    },1800)
+    $(".img3box div").eq(1).animate({
         left:"40%",
-        top:"10%",
-        fontSize: '38px'
-    },3500,'swing')
+        top: "30%",
+        fontSize: '.38rem'
+    },800)
+    $(".img3box div").eq(2).animate({
+        left:"25%",
+        top: "60%",
+        fontSize: '.38rem'
+    },900)
+    $(".img3box div").eq(3).animate({
+        left:"50%",
+        top: "20%",
+        fontSize: '.38rem'
+    },1200)
+    $(".img3box div").eq(4).animate({
+        left:"70%",
+        top: "10%",
+        fontSize: '.38rem'
+    },1500)
+    $(".img3box div").eq(5).animate({
+        left:"70%",
+        top: "40%",
+        fontSize: '.38rem'
+    },1800)
+    $(".img3box div").eq(6).animate({
+        left:"70%",
+        top: "60%",
+        fontSize: '.38rem'
+    },2000)
+    $(".img3box div").eq(7).animate({
+        left:"30%",
+        top: "40%",
+        fontSize: '.38rem'
+    },800)
     $(".img3box div").eq(8).animate({
-        left:"0%",
-        top:"0%",
-        fontSize: '38px'
-    },4000,'swing')
+        left:"20%",
+        top: "60%",
+        fontSize: '.38rem'
+    },1000)
     },200);
 }
 function cnver3() {
@@ -121,12 +126,14 @@ function cnver3() {
     // $(".bg1").fadeOut()
     
 }
-$(".meritBox li").hover(function(){
+$(".meritBox li").mouseover(function(){
     $(".meritBox .imgText").hide();
+    // $(".meritBox .imgbox").css({top:"0px"});
     $(this).find(".imgText").show();
+    $(this).find(".imgbox").animate({top:"-20px"},100);
 });
 $(".meritBox li").mouseleave(function(){
-    // $(".meritBox .imgText").hide();
+    $(".meritBox .imgbox").animate({top:"0px"},100);
 });
 
 function goamian(){
@@ -166,6 +173,7 @@ function goamian(){
         let css = {left:'83%'};
         let interval = null
         clearInterval(interval)
+        $(".bottomBox").fadeIn()
         interval = setInterval(function(){ // 这里要改成回调 定时器有性能问题
           $(".lineImg1").addClass("intro");
           $(".lineImg2").addClass("intro");
@@ -199,12 +207,42 @@ function goamian(){
     }, 6500);
     
 }
-
+$(".email").blur(function(){
+    if(!isEmail($(".email").val())) {
+        $(".email").next(".verification").show()
+    }else {
+        $(".email").next(".verification").hide()
+    }
+})
+$(".phone").blur(function(){
+    if(!isCellphone($(".phone").val())) {
+        $(".phone").next(".verification").show()
+    }else {
+        $(".phone").next(".verification").hide()
+    }
+})
+$(".sbumit").click(()=>{
+    if(!isEmail($(".email").val())) {
+        $(".email").next(".verification").show()
+        
+    }else {
+        $(".email").next(".verification").hide()
+    }
+    if(!isCellphone($(".phone").val())) {
+        $(".phone").next(".verification").show()
+    }else {
+        $(".phone").next(".verification").hide()
+    }
+    if(isEmail($(".email").val())&&isCellphone($(".phone").val())){
+        CloseDiv('MyDiv','fade')
+        $(".dialog input").val("")
+    }
+})
 function ShowDiv(show_div, bg_div) {
     $("#"+show_div).fadeIn(1000)
     $("#"+bg_div).fadeIn(1000)
     var bgdiv = document.getElementById(bg_div);
-    bgdiv.style.width = document.body.scrollWidth;
+    // bgdiv.style.width = document.body.scrollWidth;
     $("#" + bg_div).height($(document).height());
    };
    //关闭弹出层
@@ -223,7 +261,7 @@ function ShowDiv(show_div, bg_div) {
     * 18段：180、181、182、183、184、185、186、187、188、189
     * 
     */
-    var pattern =  /^(13[0-9]|14[57]|15[012356789]|17[0678]|18[0-9])\d{8}$/;
+    var pattern =  /^1\d{10}$|^(0\d{2,3}-?|0\d2,3)?[1-9]\d{4,7}(-\d{1,8})?$/;
     return pattern.test(str);
 }
 function isEmail(str){
