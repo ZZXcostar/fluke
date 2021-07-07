@@ -23,3 +23,28 @@ function isIos() {
   }
   return false;
 }
+// 判断 在PC中
+function isPC() {
+  var userAgentInfo = navigator.userAgent;
+  var Agents = ["Android", "iPhone","SymbianOS", "Windows Phone", "iPod"];
+  var flag = true;
+  for (var v = 0; v < Agents.length; v++) {
+      if (userAgentInfo.indexOf(Agents[v]) > 0) {
+          flag = false;
+          break;
+      }
+  }
+  if(window.screen.width>=768){
+      flag = true;
+  }
+  return flag;
+}
+// 判断 在PC中 写法2
+function goPAGE() {
+  if ((navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i))) {
+      alert("mobile")
+  }
+  else {
+      alert("pc")
+  }
+}
