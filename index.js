@@ -36,8 +36,23 @@ function cnOver() {
     },200);
     
 }
-$(".img1").fadeOut({duration: 1000})
-$(".img2").fadeIn({duration: 1000})
+$(".img1").fadeIn({duration: 0})
+setTimeout(()=>{
+    $(".img1").fadeOut({duration: 0})
+    $(".img2").fadeIn({duration: 0})
+    setTimeout(()=>{
+      $(".img2").fadeOut({duration: 0})
+      $(".img1").fadeIn({duration: 0})
+      setTimeout(()=>{
+        $(".img1").fadeOut({duration: 0})
+        $(".img2").fadeIn({duration: 0})
+      },500)
+    },500)
+},500)
+$(".img2").fadeOut({duration: 0})
+// $(".img2").fadeIn({duration: 500})
+// $(".img2").fadeOut({duration: 500})
+// $(".img1").fadeIn({duration: 500})
 })
 function cnver2() {
     $(".an2Title .cn").fadeOut()
