@@ -225,7 +225,7 @@
                         fontSize: "0.06rem"
                     },2000);
                     $(".product_title").fadeOut(2000)
-                    $(".meritBox li .imgText").fadeIn(2000);
+                    $(".meritBox li .imgText").eq(0).fadeIn(2000);
                     $(".an1Title").animate({
                         top:"-181%",
                         left: "18%",
