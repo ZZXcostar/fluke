@@ -91,19 +91,29 @@ button {
    }
  }
 @font-face{
-  font-family: 'helveticaneueltpro';
-  src: url('./../static/font/helveticaneueltpro.ttf');
-  font-style: normal;
-  font-weight: normal;
+  font-family: 'robr';
+  src: url('./../static/font/RobotoSlab-Regular.ttf');
+}
+@font-face{
+  font-family: 'fontLink';
+  src: url('./../static/font/RobotoSlab-Light.ttf');
 }
 body {
   line-height: 1;
   background-color: rgb(5, 4, 4);
   /* font-family: helveticaneueltpro, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue",
     -apple-system, STHeiti, "Microsoft Yahei", Tahoma, Simsun, sans-serif; */
-  font-family: helveticaneueltpro, STHeiti;
+  font-family:arial,'黑体',SimHei, robr;
   -webkit-font-smoothing: antialiased;
 }
+
+/* .fontLink{
+  font-family:fontLink;
+}
+.robr{
+  font-family:robr;
+} */
+
 ol,
 ul {
   list-style: none;
