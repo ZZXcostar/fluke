@@ -16,38 +16,38 @@
             $(".bg1").fadeOut()
             setTimeout(function(){
                 setTimeout(()=>{
-                    $(".img2box img").eq(0).fadeIn({duration: 0});
+                    $(".img2box img").eq(0).fadeIn({duration: 100});
                 },0)
                 setTimeout(()=>{
-                    $(".img2box img").eq(1).fadeIn({duration: 0});
+                    $(".img2box img").eq(1).fadeIn({duration: 100});
                 },250)
                 setTimeout(()=>{
-                    $(".img2box img").eq(2).fadeIn({duration: 0});
+                    $(".img2box img").eq(2).fadeIn({duration: 100});
                 },500)
                 setTimeout(()=>{
-                    $(".img2box img").eq(3).fadeIn({duration: 0});
+                    $(".img2box img").eq(3).fadeIn({duration: 100});
                 },750)
                 setTimeout(()=>{
-                    $(".img2box img").eq(4).fadeIn({duration: 0});
+                    $(".img2box img").eq(4).fadeIn({duration: 100});
                 },1000)
                 setTimeout(()=>{
-                    $(".img2box img").eq(5).fadeIn({duration: 0});
+                    $(".img2box img").eq(5).fadeIn({duration: 100});
                 },1250)
                 setTimeout(()=>{
-                    $(".img2box img").eq(6).fadeIn({duration: 0});
+                    $(".img2box img").eq(6).fadeIn({duration: 100});
                 },1500)
                 setTimeout(()=>{
-                    $(".img2box img").eq(7).fadeIn({duration: 0});
+                    $(".img2box img").eq(7).fadeIn({duration: 100});
                 },1750)
                 setTimeout(()=>{
-                    $(".img2box img").eq(8).fadeIn({duration: 0});
+                    $(".img2box img").eq(8).fadeIn({duration: 100});
                 },2000)
                 setTimeout(()=>{
-                    $(".img2box img").eq(9).fadeIn({duration: 0});
+                    $(".img2box img").eq(9).fadeIn({duration: 100});
                 },50)
                 $(".an2Title").show()
                 $(".an2Title").animate({
-                    right:"-=50%",
+                    right:"-=30%",
                     top:"-=30%",
                     fontSize: '.14rem'
                 },2000);
@@ -66,16 +66,19 @@
             
         }
         setTimeout(()=>{
-            $(".img1").fadeOut({duration: 0})
+            $(".img1").fadeOut({duration: 500})
+            $(".img2").fadeIn({duration: 500})
         },500)
         setTimeout(()=>{
-            $(".img2").fadeIn({duration: 0})
+            $(".img1").fadeOut({duration: 500})
+            $(".img2").fadeIn({duration: 500})
         },1000)
         setTimeout(()=>{
-            $(".img2").fadeOut({duration: 0})
+            $(".img1").fadeIn({duration: 1000})
+            $(".img2").fadeOut({duration: 1000})
         },1500)
         setTimeout(()=>{
-            $(".img1").fadeIn({duration: 0})
+            $(".img1").fadeIn({duration: 2000})
         },2000)
         })
         function cnver2() {
@@ -232,7 +235,7 @@
                         fontSize: '.12rem'
                     },2000);
                     $(".an2Title").animate({
-                        right: "-11.2534%",
+                        right: "-5.2534%",
                         top: "-121.0109%",
                         fontSize: '.12rem'
                     },2000);
