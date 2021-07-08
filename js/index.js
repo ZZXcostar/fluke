@@ -87,7 +87,7 @@
                 $(".an3Title").show()
                 $(".an3Title").animate({
                     top:"85%",
-                    right:"46%",
+                    right:"45%",
                     fontSize: '.14rem'
                 },2000);
                 setTimeout(()=>{
@@ -102,31 +102,31 @@
                 
             $(".img3box div").eq(0).animate({
                 left:"-40%",
-            },2000,'swing')
+            },500,'swing')
             $(".img3box div").eq(1).animate({
                 left:"-60%",
-            },2000,'swing')
+            },1500,'swing')
             $(".img3box div").eq(2).animate({
                 left:"-60%",
-            },2000,'swing')
+            },1600,'swing')
             $(".img3box div").eq(3).animate({
                 left:"-67%",
-            },2000,'swing')
+            },800,'swing')
             $(".img3box div").eq(4).animate({
                 left:"-80%",
-            },2000,'swing')
+            },1000,'swing')
             $(".img3box div").eq(5).animate({
                 left:"-30%",
             },2000,'swing')
             $(".img3box div").eq(6).animate({
                 left:"-20%",
-            },2000,'swing')
+            },600,'swing')
             $(".img3box div").eq(7).animate({
                 left:"-40%",
-            },2000,'swing')
+            },700,'swing')
             $(".img3box div").eq(8).animate({
                 left:"-16%",
-            },2000,'swing')
+            },1200,'swing')
             },200);
         }
         function cnver3() {
@@ -148,22 +148,22 @@
         function goamian(){
             $(".lineRight").fadeIn()
             $(".lineImg3").addClass("intro");
-            $('.lineImg3').animate({left:'83%',opacity: '0'},2000,setblack1);
-            $('.lineImgLine3').animate({left:'0%',width: '100%'},2000);
+            $('.lineImg3').animate({left:'83%',opacity: '0'},1000,setblack1);
+            $('.lineImgLine3').animate({left:'0%',width: '100%'},1000);
             setTimeout(() => {
                 $(".lineTop").fadeIn()
                 $(".lineImg1").addClass("intro");
-                $('.lineImg1').animate({left:'83%',opacity: '0'},2000,setblack2);
-                $('.lineImgLine1').animate({left:'0%',width: '100%'},2000);
+                $('.lineImg1').animate({left:'83%',opacity: '0'},1000,setblack2);
+                $('.lineImgLine1').animate({left:'0%',width: '100%'},1000);
                 $('.lineImg1').css('left', '0%')
-            }, 2000);
+            }, 1000);
             setTimeout(() => {
                 $(".lineLeft").fadeIn()
                 $(".lineImg2").addClass("intro");
-                $('.lineImg2').animate({left:'83%',opacity: '0'},2000,setblack3);
-                $('.lineImgLine2').animate({left:'0%', width: '100%'},2000);
+                $('.lineImg2').animate({left:'83%',opacity: '0'},1000,setblack3);
+                $('.lineImgLine2').animate({left:'0%', width: '100%'},1000);
                 $('.lineImg2').css('left', '0%')
-            }, 4000);
+            }, 2000);
         
             function setblack1(){
                 $('.lineImg3').css('left', '0%')
@@ -190,9 +190,9 @@
                     $(".lineImg2").addClass("intro");
                     $(".lineImg3").addClass("intro");
         
-                    $('.lineImg1').animate(css,2000,rowBack1);
-                    $('.lineImg2').animate(css,2000,rowBack2);
-                    $('.lineImg3').animate(css,2000,rowBack3);
+                    $('.lineImg1').animate(css,1000,rowBack1);
+                    $('.lineImg2').animate(css,1000,rowBack2);
+                    $('.lineImg3').animate(css,1000,rowBack3);
                 },0);
                 function rowBack1(){
                     if(css.left==='83%'){
@@ -237,61 +237,64 @@
                     $(".an2Title").animate({
                         right: "-5.2534%",
                         top: "-121.0109%",
-                        fontSize: '.12rem'
+                        fontSize: '.10rem'
                     },2000);
                     $(".an3Title").animate({
-                        top:"67%",
-                        fontSize: '.12rem'
+                        top:"64%",
+                        right: "45.6%",
+                        fontSize: '.10rem'
                     },2000);
-                    $(".product_dec").animate({
+                    $(".meritBox").animate({
                         marginTop:"0.2rem",
                     },2000);
-                    if(isPCFlag){
-                        $(".bottomBox").animate({
-                            marginTop:"0.6rem",
-                        },2000);
-                    }else{
-                        $(".bottomBox").animate({
-                            marginTop:"0.1rem",
-                        },2000);
-                    }
-                    $(".header").animate({
-                        opacity:"1",
-                    },3000);
-                    $(".footer").animate({
-                        opacity:"1",
+                    $(".product_dec").animate({
+                        marginTop:"0.1rem",
                     },2000);
                 },4000)
-            }, 6500);
+            }, 3500);
             
         }
-        $(".email").blur(function(){
+        // $(".email").blur(function(){
+        //     if(!isEmail($(".email").val())) {
+        //         $(".email").next(".verification").show()
+        //     }else {
+        //         $(".email").next(".verification").hide()
+        //     }
+        // })
+        // $(".phone").blur(function(){
+        //     if(!isCellphone($(".phone").val())) {
+        //         $(".phone").next(".verification").show()
+        //     }else {
+        //         $(".phone").next(".verification").hide()
+        //     }
+        // })
+        $(".email").bind("input propertychange",function () {
             if(!isEmail($(".email").val())) {
                 $(".email").next(".verification").show()
             }else {
                 $(".email").next(".verification").hide()
             }
-        })
-        $(".phone").blur(function(){
+        });
+        $(".phone").bind("input propertychange",function () {
             if(!isCellphone($(".phone").val())) {
                 $(".phone").next(".verification").show()
             }else {
                 $(".phone").next(".verification").hide()
             }
-        })
+        });
         $(".sbumit").click(()=>{
-            if(!isEmail($(".email").val())) {
+            if(isEmail($(".email").val())) {
                 $(".email").next(".verification").show()
                 
             }else {
                 $(".email").next(".verification").hide()
             }
-            if(!isCellphone($(".phone").val())) {
+            if(isCellphone($(".phone").val())) {
                 $(".phone").next(".verification").show()
             }else {
                 $(".phone").next(".verification").hide()
             }
-            if(isEmail($(".email").val())&&isCellphone($(".phone").val())){
+            if(!isEmail($(".email").val())&&!isCellphone($(".phone").val())){
                 CloseDiv('MyDiv','fade')
                 $(".dialog input").val("")
             }
@@ -300,16 +303,16 @@
     }
 
     function ShowDiv(show_div, bg_div) {
-        $("#"+show_div).fadeIn(1000)
-        $("#"+bg_div).fadeIn(1000)
+        $("#"+show_div).fadeIn(300)
+        $("#"+bg_div).fadeIn(300)
         var bgdiv = document.getElementById(bg_div);
         // bgdiv.style.width = document.body.scrollWidth;
         $("#" + bg_div).height($(document).height());
         };
         //关闭弹出层
         function CloseDiv(show_div, bg_div) {
-        $("#"+show_div).fadeOut(1000)
-        $("#"+bg_div).fadeOut(1000)
+        $("#"+show_div).fadeOut(300)
+        $("#"+bg_div).fadeOut(300)
         };
     
         function isCellphone(str) {
@@ -323,7 +326,7 @@
         * 
         */
         var pattern =  /^1\d{10}$|^(0\d{2,3}-?|0\d2,3)?[1-9]\d{4,7}(-\d{1,8})?$/;
-        return pattern.test(str);
+        return str?pattern.test(str):true;
     }
     function isEmail(str){
         /**
@@ -335,6 +338,6 @@
          * 5.邮件提供商域可以包含特殊字符-、_、.
          */
         var pattern = /^([a-zA-Z0-9]+[-_.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[-_.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,6}$/;
-        return pattern.test(str);
+        return str?pattern.test(str):true;
     }
        
