@@ -90,11 +90,18 @@ button {
      margin-bottom:68px;
    }
  }
+@font-face{
+  font-family: 'helveticaneueltpro';
+  scr: url('./../static/font/helveticaneueltpro.ttf');
+  font-style: normal;
+  font-weight: normal;
+}
 body {
   line-height: 1;
   background-color: rgb(5, 4, 4);
-  font-family: BlinkMacSystemFont, "PingFang SC", "Helvetica Neue",
-    -apple-system, STHeiti, "Microsoft Yahei", Tahoma, Simsun, sans-serif;
+  /* font-family: helveticaneueltpro, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue",
+    -apple-system, STHeiti, "Microsoft Yahei", Tahoma, Simsun, sans-serif; */
+  font-family: helveticaneueltpro, STHeiti;
   -webkit-font-smoothing: antialiased;
 }
 ol,

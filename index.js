@@ -171,7 +171,6 @@ function goamian(){
         let css = {left:'83%'};
         let interval = null
         clearInterval(interval)
-        $(".bottomBox").fadeIn()
         interval = setInterval(function(){ // 这里要改成回调 定时器有性能问题
           $(".lineImg1").addClass("intro");
           $(".lineImg2").addClass("intro");
@@ -212,6 +211,7 @@ function goamian(){
             $(".product_title").animate({
                 height :"0",
                 opacity: "0",
+                fontSize: "0.06rem"
             },2000);
             $(".product_title").fadeOut(2000)
             $(".meritBox li .imgText").fadeIn(2000);
