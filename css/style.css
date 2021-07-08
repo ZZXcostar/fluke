@@ -367,8 +367,8 @@
        display: none;
    }
    .bottomBox{
-    display: none;
-    width: 100%;
+    opacity: 0;
+    width: 100vw;
     bottom: 10%;
     margin-top: 0.1rem;
    }

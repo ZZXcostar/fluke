@@ -47,7 +47,7 @@
                 },50)
                 $(".an2Title").show()
                 $(".an2Title").animate({
-                    right:"-=30%",
+                    right:"-=32%",
                     top:"-=30%",
                     fontSize: '.14rem'
                 },2000);
@@ -219,8 +219,10 @@
                     $(".product_title").animate({
                         opacity: "1",
                     },2000);
-                    $(".bottomBox").fadeIn(2000)
-                },2000)
+                    $(".bottomBox").animate({
+                        opacity: "1",
+                    },2000);
+                },3000)
                 setTimeout(()=>{
                     $(".product_title").animate({
                         height :"0",
@@ -235,7 +237,7 @@
                         fontSize: '.12rem'
                     },2000);
                     $(".an2Title").animate({
-                        right: "-5.2534%",
+                        right: "-3.2534%",
                         top: "-121.0109%",
                         fontSize: '.10rem'
                     },2000);
@@ -250,7 +252,7 @@
                     $(".product_dec").animate({
                         marginTop:"0.1rem",
                     },2000);
-                },4000)
+                },5000)
             }, 3500);
             
         }
