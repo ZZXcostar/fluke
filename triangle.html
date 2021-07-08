@@ -231,7 +231,26 @@
     //     doc.addEventListener('DOMContentLoaded', recalc, false);
         
     // })(document, window);
-
+    //  (function(doc, win) {
+    //     var docEl = doc.documentElement,
+    //         resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+    //         recalc = function() {
+    //             var clientWidth = docEl.clientWidth;
+    //             if (!clientWidth) return;
+    //             if (clientWidth >= 750) {
+    //               $(".tip").hide()
+    //                 $(".content").show()
+    //             } else {
+    //     console.log(111)
+    //               $(".tip").show()
+    //                 $(".content").hide()
+    //             }
+    //         };
+    //     if (!doc.addEventListener) return;
+    //     win.addEventListener(resizeEvt, recalc, false);
+    //     doc.addEventListener('DOMContentLoaded', recalc, false);
+      
+    // })(document, window);
     $(function(){
       let isPCFlag = isPC()
       console.log(isPCFlag)
@@ -241,25 +260,7 @@
         startMobieActive(isPCFlag)
       }
 
-      // (function(doc, win) {
-      //     var docEl = doc.documentElement,
-      //         resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
-      //         recalc = function() {
-      //             var clientWidth = docEl.clientWidth;
-      //             if (!clientWidth) return;
-      //             if (clientWidth >= 750) {
-      //                 // docEl.style.fontSize = '100px';
-      //                 startPcActive()
-      //             } else {
-      //               startMobieActive()
-      //                 // docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
-      //             }
-      //         };
-      //     if (!doc.addEventListener) return;
-      //     win.addEventListener(resizeEvt, recalc, false);
-      //     doc.addEventListener('DOMContentLoaded', recalc, false);
-          
-      // })(document, window);
+      
     })
     function startPcActive(isPCFlag){
       $(".tip").hide()
@@ -351,25 +352,58 @@
     display: none;
     position: absolute;
   }
-  /* @media screen and (orientation: portrait) {
+  
+  @media screen and (orientation: portrait){
+    .tip{
+      display: flex !important;
+      }
+    .content{
+      display: none !important;
+    }
+   
+  }
+
+  @media screen and (orientation: landscape) {
+    .tip{
+      display: none !important;
+    }
+    .content{
+      display: block !important;
+    }
+  } 
+  
+  /*
+  @media screen and (orientation: portrait)
+    .tip{
+	 display: block;
+	}
+	.content{
+	 display:none;
+	}
+    body{
+	  position: fixed;
+	}
     .content {
-      display: none;
       position: absolute;
-      width: 100vh;
+       width: 100vh;
       height: 100vw;
+	  
       top: 0;
       left: 100vw;
     }
   }
 
   @media screen and (orientation: landscape) {
+    body{
+	  position: fixed;
+	}
     .content {
-      display: none;
       position: absolute;
       top: 0;
       left: 0;
       width: 100vw;
       height: 100vh;
     }
-  } */
+  } 
+  */
 </style>
