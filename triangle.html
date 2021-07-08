@@ -17,6 +17,7 @@
     <link rel="stylesheet" type="text/css" href="./css/triangle.css">
     <script src="./jq.min.js"></script>
     <script src="./js/rem.js"></script>
+    <script src="./js/utils.js"></script>
 </head>
 
 <body>
@@ -181,10 +182,11 @@
         <span>|</span>
         <span>沪ICP备11037028号-20</span>
       </div>
-      <div><img class="footer_icon" src="./img/1-国徽.png"></div>
+      <img class="footer_icon" src="./img/1-国徽.png">
     </footer>
   </div>
   <div class="tip">
+    <img class="tip_img" src="./img/6-X.png">
     <p style="color: #fff;">请将手机旋转至横屏观看效果更佳</p>
   </div>
   <div id="MyDiv" class="white_content">
@@ -211,54 +213,80 @@
 </html>
 <script src="./index.js"></script>
 <script>
-    // let vm=new Vue({
-    //     data:{},
-    //     created(){
-    //         alert(111);
-    //     }
-    // });
-    // document.querySelector('body').addEventListener('touchstart', function (ev) {
-    //     event.preventDefault();
-    // });
-    // window.onbeforeunload = function () {
-    //     return "退出?";
-    // };
-    // window.onload = function () {
-        
-    // }
     
-    (function(doc, win) {
-        var docEl = doc.documentElement,
-            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
-            recalc = function() {
-                var clientWidth = docEl.clientWidth;
-                if (!clientWidth) return;
-                if (clientWidth >= 750) {
-                    // docEl.style.fontSize = '100px';
-                } else {
-                    // docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
-                }
-            };
-        if (!doc.addEventListener) return;
-        win.addEventListener(resizeEvt, recalc, false);
-        doc.addEventListener('DOMContentLoaded', recalc, false);
+    // (function(doc, win) {
+    //     var docEl = doc.documentElement,
+    //         resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+    //         recalc = function() {
+    //             var clientWidth = docEl.clientWidth;
+    //             if (!clientWidth) return;
+    //             if (clientWidth >= 750) {
+    //                 // docEl.style.fontSize = '100px';
+    //             } else {
+    //                 // docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+    //             }
+    //         };
+    //     if (!doc.addEventListener) return;
+    //     win.addEventListener(resizeEvt, recalc, false);
+    //     doc.addEventListener('DOMContentLoaded', recalc, false);
         
-    })(document, window);
-     //jsonp 
-     // 得到信息结果后的回调函数
-    // var openidCB = function(data){
-    //     alert(data);
-    // };
+    // })(document, window);
 
-    // var timerId = null
-    // // 取消定时器的执行
-    // clearTimeout(timerId);
-    // timerId = setTimeout(function () {
-    //   var box1 = document.getElementsByClassName("tip")[0];
-    //   box1.style.display = 'none';
-    //   var box2 = document.getElementsByClassName("content")[0];
-    //   box2.style.display = 'block';
-    // }, 3000);
+    $(function(){
+      let isPCFlag = isPC()
+      console.log(isPCFlag)
+      if(isPCFlag){
+        startPcActive(isPCFlag)
+      }else{
+        startMobieActive(isPCFlag)
+      }
+
+      // (function(doc, win) {
+      //     var docEl = doc.documentElement,
+      //         resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+      //         recalc = function() {
+      //             var clientWidth = docEl.clientWidth;
+      //             if (!clientWidth) return;
+      //             if (clientWidth >= 750) {
+      //                 // docEl.style.fontSize = '100px';
+      //                 startPcActive()
+      //             } else {
+      //               startMobieActive()
+      //                 // docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+      //             }
+      //         };
+      //     if (!doc.addEventListener) return;
+      //     win.addEventListener(resizeEvt, recalc, false);
+      //     doc.addEventListener('DOMContentLoaded', recalc, false);
+          
+      // })(document, window);
+    })
+    function startPcActive(isPCFlag){
+      $(".tip").hide()
+      $(".content").show()
+      $("body").addClass('pcMaxStyle')
+      $(".content").css({
+        'height': '100%',
+        'width': '100%'
+      })
+      $(".content").removeClass('mobieStyle')
+      init(isPCFlag)
+    }
+    function startMobieActive(isPCFlag){
+      $("body").removeClass('pcMaxStyle')
+      $(".content").addClass('mobieStyle')
+      $(".tip").show()
+      $(".content").hide()
+      var timerId = null
+      // 取消定时器的执行
+      clearTimeout(timerId);
+      timerId = setTimeout(function () {
+        $(".tip").hide()
+        $(".content").show()
+        init(isPCFlag)
+      }, 3000);
+    }
+    
 </script>
 <script>
 
@@ -269,49 +297,79 @@
      height: 100%; */
    }
   body {
-    position: fixed;
     width: 100%;
     height: 100%;
     padding: 0;
     margin: 0;
-    overflow: hidden;
   }
-   p{
-    font-size: 24px;
-    height: 84vh;
-    /* line-height: 68px; */
-    padding: 0 30px;
-    margin-top: 77%;
-   }
-   .tip{
+  .pcMaxStyle{
+    min-width: 1250px !important;
+    min-height: 600px !important;
+    overflow: scroll;
+  }
+  .mobieStyle{
+    position: fixed;
+    width: 100vh;
+    height: 100vw;
+    top: 0;
+    left: 100vw;
+    /* top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh; */
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+    transform-origin: 0% 0%;
+  }
+  .tip{
     /* display: none; */
     width: 100vw;
     height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
   }
-  @media screen and (orientation: portrait) {
+  .tip .tip_img{
+    width: 2rem;
+    height: 2rem;
+    opacity: 0.8;
+    margin-bottom: 0.2rem;
+  }
+  .tip p{
+    color: #fff;
+    font-size: 0.4rem;
+    opacity: 0.5;
+    letter-spacing: 0.1rem;
+    padding: 0 1.3rem;
+    text-align: center;
+    line-height: 0.6rem;
+   }
+  .content {
+    display: none;
+    position: absolute;
+  }
+  /* @media screen and (orientation: portrait) {
     .content {
-      display: black;
+      display: none;
       position: absolute;
       width: 100vh;
       height: 100vw;
       top: 0;
       left: 100vw;
-      -webkit-transform: rotate(90deg);
-      -moz-transform: rotate(90deg);
-      -ms-transform: rotate(90deg);
-      transform: rotate(90deg);
-      transform-origin: 0% 0%;
     }
   }
 
   @media screen and (orientation: landscape) {
     .content {
-      display: black;
+      display: none;
       position: absolute;
       top: 0;
       left: 0;
       width: 100vw;
       height: 100vh;
     }
-  }
+  } */
 </style>

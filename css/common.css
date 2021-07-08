@@ -92,7 +92,7 @@ button {
  }
 @font-face{
   font-family: 'helveticaneueltpro';
-  scr: url('./../static/font/helveticaneueltpro.ttf');
+  src: url('./../static/font/helveticaneueltpro.ttf');
   font-style: normal;
   font-weight: normal;
 }
