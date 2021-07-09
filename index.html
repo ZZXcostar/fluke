@@ -216,78 +216,105 @@
 </html>
 <script src="./js/index.js"></script>
 <script>
-    
-    // (function(doc, win) {
-    //     var docEl = doc.documentElement,
-    //         resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
-    //         recalc = function() {
-    //             var clientWidth = docEl.clientWidth;
-    //             if (!clientWidth) return;
-    //             if (clientWidth >= 750) {
-    //                 // docEl.style.fontSize = '100px';
-    //             } else {
-    //                 // docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
-    //             }
-    //         };
-    //     if (!doc.addEventListener) return;
-    //     win.addEventListener(resizeEvt, recalc, false);
-    //     doc.addEventListener('DOMContentLoaded', recalc, false);
-        
-    // })(document, window);
-    //  (function(doc, win) {
-    //     var docEl = doc.documentElement,
-    //         resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
-    //         recalc = function() {
-    //             var clientWidth = docEl.clientWidth;
-    //             if (!clientWidth) return;
-    //             if (clientWidth >= 750) {
-    //               $(".tip").hide()
-    //                 $(".content").show()
-    //             } else {
-    //     console.log(111)
-    //               $(".tip").show()
-    //                 $(".content").hide()
-    //             }
-    //         };
-    //     if (!doc.addEventListener) return;
-    //     win.addEventListener(resizeEvt, recalc, false);
-    //     doc.addEventListener('DOMContentLoaded', recalc, false);
-      
-    // })(document, window);
     $(function(){
       let isPCFlag = isPC()
       console.log(isPCFlag)
       if(isPCFlag){
         startPcActive(isPCFlag)
       }else{
-        startMobieActive(isPCFlag)
+        startMobieActive()
       }
-
-      
     })
     function startPcActive(isPCFlag){
       $(".tip").hide()
       $(".content").show()
       $(".content").addClass('pcStyle')
-      $(".content").removeClass('mobieStyle')
+      // $(".content").removeClass('mobieStyle')
       init(isPCFlag)
     }
-    function startMobieActive(isPCFlag){
-      // $(".content").removeClass('pcStyle')
+    function startMobieActive(){
       $(".content").addClass('pcStyle')
-      // $(".content").addClass('mobieStyle')
-      $(".tip").show()
-      $(".content").hide()
-      var timerId = null
-      // 取消定时器的执行
-      clearTimeout(timerId);
-      timerId = setTimeout(function () {
-        $(".tip").hide()
-        $(".content").show()
-        init(isPCFlag)
-      }, 3000);
+      // $(".tip").show()
+      // $(".content").hide()
+      // setTimeout(function () {
+      //   $(".tip").hide()
+      //   $(".content").show("normal", init(isPCFlag))
+      // }, 3000);
     }
+    // 浏览器中看到屏幕旋转带来样式
+    (function(){
+    let active = 0;
+    let isPCFlag = isPC()
+    if(isPCFlag) return
+    var supportOrientation = (typeof window.orientation === 'number' &&
+    typeof window.onorientationchange === 'object');
+    var init1 = function(){
+    var htmlNode = document.body.parentNode,
+    orientation;
+    var updateOrientation = function(){
+    if(supportOrientation){
+    orientation = window.orientation;
+    switch(orientation){
+    case 90:
+    case -90:
+    orientation = 'landscape';
+    break;
+    default:
+    orientation = 'portrait';
+    break;
+    }
+    }else{
+    orientation = (window.innerWidth > window.innerHeight) ? 'landscape' : 'portrait';
+    }
+    // htmlNode.setAttribute('class',orientation);
+      if(orientation == 'landscape'){
+        // $(".tip").hide()
+        // $(".content").show("normal", init(isPCFlag))
+        active ++
+        if(active < 2){
+          init(isPCFlag)
+        }
+      }else{
+        // stopInit()
+        $('.content').stop()
+        // $(".tip").show()
+        // $(".content").hide()
+      }
+    };
+    if(supportOrientation){
+    window.addEventListener('orientationchange',updateOrientation,false);
+    }else{
+    //监听resize事件
+    window.addEventListener('resize',updateOrientation,false);
+    }
+    updateOrientation();
+    };
+    window.addEventListener('DOMContentLoaded',init1,false);
+  })();
     
+    
+
+
+     //监听屏幕旋转
+    //  $(window).on('orientationchange', function() {
+    //     var $el = $("body"); // 需要重新获得宽和高的元素
+    //     newWidth = $el.width(); // 新的宽
+    //     newHeight = $el.height(); // 新的高
+    //     console.log(newWidth+"新宽");
+    //     console.log(newHeight+"新高");
+    // });
+
+      //监听横竖屏
+    // var evt = "onorientationchange" in window ? "orientationchange" : "resize";
+    // window.addEventListener(evt,resize,false);
+    // function resize(fals) {
+    //    if(window.orientation == 0 || window.orientation == 180) {
+    //         alert("旋转1");
+    //    }else {
+    //         alert("旋转2");
+    //    }
+    // }
+    // resize(true);
 </script>
 <script>
 
@@ -318,11 +345,11 @@
     left: 0;
     width: 100vw;
     height: 100vh; */
-    -webkit-transform: rotate(90deg);
+    /* -webkit-transform: rotate(90deg);
     -moz-transform: rotate(90deg);
     -ms-transform: rotate(90deg);
     transform: rotate(90deg);
-    transform-origin: 0% 0%;
+    transform-origin: 0% 0%; */
   }
   .tip{
     /* display: none; */
